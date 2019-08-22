@@ -4,7 +4,7 @@ require './app/models/trip'
 require './app/models/condition'
 
 class Seed
-
+#seed
   OPTIONS = {headers: true, header_converters: :symbol}
 
   def self.start
@@ -28,7 +28,7 @@ class Seed
       Trip.create!(row.to_hash)
     end
   end
-  
+
   def self.seed_conditions
     CSV.foreach("./db/csv/weather.csv", OPTIONS) do |row|
       next if row[:zip_code] != "94107"
